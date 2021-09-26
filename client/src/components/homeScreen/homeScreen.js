@@ -1,13 +1,23 @@
 import './homeSreen.css';
 import React, { Component } from 'react';
+import {Redirect, Link, withRouter, NavLink } from 'react-router-dom';
+
 
 class HomeSreen extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+
     showValue(newValue){
         document.getElementById('sliderValue').innerHTML=newValue;
     }
+
+
     render(){
         return(
-        <div className="HomeScreen" style={{height:"100vh", backgroundColor:"black"}}>
+        <div className="HomeScreen" style={{height:"100vh", backgroundColor:"#000"}}>
             <div style={{height:"10px"}}/>
             <form className='cardContainer' name="theForm">
                 <div className='card category'>
@@ -28,6 +38,7 @@ class HomeSreen extends Component {
                         <lable for='1420'>1420</lable>
                     </div>
                 </div>
+
                 <div className='card sorting'>
                     <div>
                         <input type='radio' id='bubbleSort'name="sorting"/>
@@ -46,6 +57,7 @@ class HomeSreen extends Component {
                         <lable for='insertionSort'>insertionSort</lable>
                     </div>
                 </div>
+                
                 <div className='card chooseSize'>
                     <input type='range' className="slider" id="slider" name="slider"
                         min="10" max="100" defaultValue = "55" step="1"
@@ -53,11 +65,13 @@ class HomeSreen extends Component {
                     />
                     <h1 id="sliderValue" >{55}</h1>
                     <h1 id="submitValue">{123}</h1>
-                    <button form="theForm"
+
+                    <button form="theForm" 
                         title="Sorting" className="sortingButtom" id="sortingButtom" 
                         style={{backgroundColor:'red',borderRadius:'10px'}}>
-                        Sorting
+                            <NavLink to="/Sorting">Sorting</NavLink>
                     </button>
+                    
                     <script type="text/javascript">
                     var sortingButtom = document.getElementById("sortingButtom");
                     sortingButtom.onClick = {() => {
@@ -77,4 +91,4 @@ class HomeSreen extends Component {
 }
 
 
-export default HomeSreen;
+export default withRouter(HomeSreen);
