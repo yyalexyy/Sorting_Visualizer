@@ -4,7 +4,6 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import HomeSreen from './components/homeScreen/homeScreen';
 
-
 ReactDOM.render(
   <React.StrictMode>
     <HomeSreen />

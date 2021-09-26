@@ -20,14 +20,13 @@ class HomeSreen extends Component {
                         <lable for='Alex'>Alex</lable>
                     </div>
                     <div>
-                        <input type='radio' id='HSNU'name="category" />
+                        <input type='radio' id='HSNU'name="category"/>
                         <lable for='HSNU'>HSNU</lable>
                     </div>
                     <div>
                         <input type='radio' id='1420'name="category"/>
                         <lable for='1420'>1420</lable>
                     </div>
-                    <h1 id="selected">{}</h1>
                 </div>
                 <div className='card sorting'>
                     <div>
@@ -74,6 +73,7 @@ class HomeSreen extends Component {
         </div>
         )
     }
+
 }
 
 
