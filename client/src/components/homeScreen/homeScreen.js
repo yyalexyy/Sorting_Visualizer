@@ -1,9 +1,15 @@
 import './homeSreen.css';
+import React, { Component } from 'react';
 
-function HomeSreen(){
-    return(
-        <div className="HomeScreen">
-            <div style={{height:"100vh", backgroundColor:"black"}}>
+class HomeSreen extends Component {
+    showValue(newValue){
+        document.getElementById('sliderValue').innerHTML=newValue;
+    }
+    render(){
+        return(
+        <div className="HomeScreen" style={{height:"100vh", backgroundColor:"black"}}>
+            <div style={{height:"10px"}}/>
+            <form className='cardContainer' name="theForm">
                 <div className='card category'>
                     <div>
                         <input type='radio' id='TaoTao' name="category"/>
@@ -40,18 +46,34 @@ function HomeSreen(){
                         <lable for='insertionSort'>insertionSort</lable>
                     </div>
                 </div>
-                <div className='card sizeslider'>
-                    <input type='range' min="10" max="100" value="55"
-                    class="sizeSlider" id="sizeRange"/>
-                    <p id="demo"></p>
+                <div className='card chooseSize'>
+                    <input type='range' className="slider" id="slider" name="slider"
+                        min="10" max="100" defaultValue = "55" step="1"
+                        onChange = {(e)=>this.showValue(e.target.value)}
+                    />
+                    <h1 id="sliderValue" >{55}</h1>
+                    <h1 id="submitValue">{123}</h1>
+                    <button form="theForm"
+                        title="Sorting" className="sortingButtom" id="sortingButtom" 
+                        style={{backgroundColor:'red',borderRadius:'10px'}}>
+                        Sorting
+                    </button>
+                    <script type="text/javascript">
+                    var sortingButtom = document.getElementById("sortingButtom");
+                    sortingButtom.onClick = {() => {
+                        var category = document.querySelector('input[name="category"]:check').value;
+                        var sorting = document.querySelector('input[name="sorting"]:check').value;
+                        var size = document.querySelector('input[name="slider"]').value;
+                        document.getElementById("submitValue").innerHTML = {category}}}
+                    </script>
                 </div>
-                <button title="Sorting" className="sortingButtom" id="sortingButtom" 
-                style={{backgroundColor:'grey',color:'white',padding:'15px',borderRadius:'10px'}}>
-                    Sorting
-                </button>
+            </form>
+            <div>
             </div>
         </div>
-    )
+        )
+    }
+
 }
 
 

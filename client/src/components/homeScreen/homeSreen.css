@@ -1,61 +1,97 @@
-.card{
-    -webkit-align-items: center;
-            align-items: center;
-    -webkit-justify-content: center;
-            justify-content: center;
-    float: left;
-    margin: 10px;
-    flex: 1;
-    width:30%;
-    height: 200px;
-    background-color: rgb(82, 82, 82);
-    border-radius: 10px;
-    padding-left: 10px;
+* {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
 }
-.sizeSlider {
-    -webkit-appearance: none;
-    width: 96%;
-    height: 15px;
-    border-radius: 5px;  
-    background: #c7c7c7;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-  }
-  
-  .sizeSlider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: #a70909;
-    cursor: pointer;
-  }
-  
-  .sizeSlider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #a70909;
-    cursor: pointer;
-  }
-.sortingButtom{
-    width: 20%;
+::after{
+    clear: both;
 }
-.HomeScreen {
-    height:100vh;
-    backgroundColor:black;
-    text-align: center;
-  }
-.homeScreen-header{
-    background-color: #282c34;
-    min-height: 100vh;
+
+.cardContainer{
+    padding: 2%;
+    width: 100%;
+    max-width: 96%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(141, 0, 0);
 }
+.card{
+    float: left;
+    flex: 1;
+    margin: 10px 5px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.3;
+    transform: rotateX(45deg);
+    border-radius: 10px;
+    padding-top: 10px;
+    transition: opacity 1s linear , transform 1s linear;
+}
+.card > *{
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.card:hover{
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+.HomeScreen {
+    text-align: center;
+}
+
+.sortingButtom{
+    color:'white';
+    width: 40%;
+    height: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.card::before {
+    content:"";
+    width:inherit;
+    height: 42%;
+    position: absolute;
+    bottom: -42%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3),white);
+    z-index: 1;
+  }
+
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    margin: auto;
+  }
+  
+  .slider+h1{
+      text-align: center;
+  }
+
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #ff0000; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
