@@ -1,6 +1,6 @@
 import './homeSreen.css';
 import React, { Component } from 'react';
-import {Redirect, Link, withRouter, NavLink } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 
 
 class HomeSreen extends Component {
