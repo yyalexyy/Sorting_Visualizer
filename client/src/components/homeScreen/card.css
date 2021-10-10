@@ -1,0 +1,19 @@
+.card{
+    flex: 1;
+    background: rgb(255, 255, 255);
+    height: 300px;
+    width: 30%;
+    margin: 10px 5px;
+    padding-top: 10px;
+    border-radius: 10px;
+    opacity: 0.3;
+    transform: rotateX(45deg);
+    transition: opacity 1s linear , transform 1s linear;
+}
+.card > *{
+    text-align: left;
+}
+.card:hover{
+    opacity: 1;
+    transform: rotateY(0deg);
+}

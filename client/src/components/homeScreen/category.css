@@ -1,0 +1,16 @@
+ul.categoryList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li button{
+    color: rgb(0, 0, 0);
+    background: none;
+    border: none;
+}
+
+h1.checked_item {
+    align-self: stretch;
+    color: rgba(95, 95, 95, 0.404);
+}
