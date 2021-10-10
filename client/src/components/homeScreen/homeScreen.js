@@ -1,6 +1,9 @@
 import './homeSreen.css';
 import React, { Component,setState } from 'react';
-import { withRouter, NavLink } from 'react-router-dom';
+import {Redirect, Link, withRouter, NavLink } from 'react-router-dom';
+import Category from './category';
+import SortingMethod from './sorting_methods';
+import './card.css';
 
 class HomeSreen extends Component {
     constructor(props){
@@ -13,8 +16,12 @@ class HomeSreen extends Component {
             value : 0 
         }
     }
-    
-
+    settingCategory(theCategory){
+        this.setState({category: theCategory});
+    }
+    settingSortingMethod(theMethod){
+        this.setState({sortingMethod: theMethod});
+    }
     showValue(newValue){
         this.setState({value: parseInt(newValue)});
         document.getElementById('sliderValue').innerHTML=newValue;
@@ -24,7 +31,8 @@ class HomeSreen extends Component {
         <div className="HomeScreen" style={{height:"100vh", backgroundColor:"#000"}}>
             <div style={{height:"10px"}}/>
             <form className='cardContainer' name="theForm">
-
+                <Category settingCategory={this.settingCategory} />
+                <SortingMethod settingSortingMethod={this.settingSortingMethod} />
                 <div className='card chooseSize'>
                     <input type='range' className="slider" id="slider" name="slider"
                         min={this.state.min} max={this.state.max} defaultValue = "55" step="1"
