@@ -7,20 +7,19 @@ class Category extends Component {
         super(props);
         this.state = { 
             value : 'category',
-            settingCategory : props.settingCategory, 
         }
     }
     handleONClick(e){
-        this.settingCategory(e.target.value);
         this.setState({value:e.target.value});
+        this.props.settingCategory(e.target.value);
     }
     categorys = ["TaoTao","Alex","1420","HSNU"] ;
     render(){
-        const listItems = this.categorys.map((category) =>
-            <li className='list' key={category}>
-                <button className="button" type="button" value={category} 
+        const listItems = this.categorys.map((cat) =>
+            <li className='list' key={cat}>
+                <button className="button" type="button" value={cat} 
                 onClick={(e)=>{this.handleONClick(e)}}>
-                    {category}
+                    {cat}
                 </button>
             </li> 
         );
