@@ -30,7 +30,7 @@ class SortSreen extends Component {
     
     visialize_sort() {
         if(this.state.sortingMethod === "bubbleSort") {
-            return <BubbleSort/>
+            return <BubbleSort contentArray={this.videos}/>
         } else if (this.state.sortingMethod === "selectionSort") {
             return <SelectionSort/>
         } else if (this.state.sortingMethod === "insertionSort") {
@@ -44,23 +44,10 @@ class SortSreen extends Component {
     render(){
         this.generateNumbers();
         
-        console.log(this.state.sortingMethod)
-
-        var videos_bars = this.videos.map((value) => 
-            <li className='bars' key={value}>
-                {value}
-            </li>
-        );
-
         return(
-            
             <div>
                 <h1>Sort Sreen</h1>
-                
-                <ul className='bars_container'>
-                    {videos_bars}
-                </ul>
-                
+              
                 {this.visialize_sort()}
 
             </div>
@@ -68,6 +55,5 @@ class SortSreen extends Component {
     }
 
 }
-
 
 export default SortSreen;
