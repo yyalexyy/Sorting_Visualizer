@@ -1,6 +1,6 @@
 import './homeSreen.css';
-import React, { Component,setState } from 'react';
-import {Redirect, Link, withRouter, NavLink } from 'react-router-dom';
+import React, { Component } from 'react';
+import { withRouter, NavLink } from 'react-router-dom';
 import Category from './category';
 import SortingMethod from './sorting_methods';
 import './card.css';
