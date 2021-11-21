@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class BubbleSort extends Component {
-    videos = [];
     constructor(props) {
         super(props);
     }
@@ -19,27 +18,18 @@ class BubbleSort extends Component {
         for(i = 0; i < n-1; i++) {
             for(j = 0; j < n-i-1; j++) {
                 if(arr[j] > arr[j+1]) {
-                    swap(arr, j, j+1);
+                    this.swap(arr, j, j+1);
                 }
             }
         }
     }
 
     render(){
-        
-        var videos_bars = this.videos.map(
-            (value) => 
-            <li className='bars' key={value}>
-                {value}
-            </li>
-        );
+        console.log("IN bubble_sort.js")
 
         return(
             <div>
-                <h1>Sort Sreen</h1>
-                <ul className='bars_container'>
-                    {videos_bars}
-                </ul>
+                <h1>In Bubble Sort</h1>
             </div>
         )
     }
