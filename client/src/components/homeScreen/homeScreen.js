@@ -31,8 +31,10 @@ class HomeSreen extends Component {
         <div className="HomeScreen" style={{height:"100vh", backgroundColor:"#000"}}>
             <div style={{height:"10px"}}/>
             <form className='cardContainer' name="theForm">
+
                 <Category settingCategory={this.settingCategory} />
                 <SortingMethod settingSortingMethod={this.settingSortingMethod} />
+                
                 <div className='card chooseSize'>
                     <input type='range' className="slider" id="slider" name="slider"
                         min={this.state.min} max={this.state.max} defaultValue = "55" step="1"
@@ -52,15 +54,7 @@ class HomeSreen extends Component {
                             }} 
                             >Sorting</NavLink>
                     </button>
-                    
-                    <script type="text/javascript">
-                    var sortingButtom = document.getElementById("sortingButtom");
-                    sortingButtom.onClick = {() => {
-                        var category = document.querySelector('input[name="category"]:check').value;
-                        var sorting = document.querySelector('input[name="sorting"]:check').value;
-                        var size = document.querySelector('input[name="slider"]').value;
-                        document.getElementById("submitValue").innerHTML = {category}}}
-                    </script>
+
                 </div>
             </form>
         </div>
