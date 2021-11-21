@@ -9,17 +9,17 @@ class HomeSreen extends Component {
     constructor(props){
         super(props);
         this.state = {
-            categoty : '',
+            category : '',
             sortingMethod : '',
             min : 10 ,
             max : 100 ,
             value : 0 
         }
     }
-    settingCategory(theCategory){
+    settingCategory = (theCategory) => {
         this.setState({category: theCategory});
     }
-    settingSortingMethod(theMethod){
+    settingSortingMethod = (theMethod) => {
         this.setState({sortingMethod: theMethod});
     }
     showValue(newValue){
@@ -39,12 +39,16 @@ class HomeSreen extends Component {
                         onChange = {(e)=>this.showValue(e.target.value)}
                     />
                     <h1 id="sliderValue" >{(this.state.min+this.state.max)/2}</h1>
-                    <button form="theForm"
+                    <button 
                         title="Sorting" className="sortingButtom" id="sortingButtom" 
                         style={{backgroundColor:'red',borderRadius:'10px'}}>
                             <NavLink to={{
                                 pathname:'/Sorting',
-                                aboutProps:{min:this.state.min,value:this.state.value}
+                                aboutProps:{
+                                    value:this.state.value,
+                                    category:this.state.category,
+                                    sortingMethod:this.state.sortingMethod
+                                }
                             }} 
                             >Sorting</NavLink>
                     </button>

@@ -9,12 +9,16 @@ class SortingMethod extends Component {
             value : 'sorting_method',
         }
     }
+    handleONClick(e){
+        this.setState({value:e.target.value});
+        this.props.settingSortingMethod(e.target.value);
+    }
     methods = ["bubbleSort","mergeSort","selectionSort","insertionSort"] ;
     render(){
         const listItems = this.methods.map((method) =>
             <li className='list' key={method}>
                 <button className="button" type="button" value={method} 
-                onClick={(e)=>{this.setState({value:e.target.value})}}>
+                onClick={(e)=>{this.handleONClick(e)}}>
                     {method}
                 </button>
             </li> 
