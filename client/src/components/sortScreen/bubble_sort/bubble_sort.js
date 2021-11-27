@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import '../bars.css';
+import '../bars_container.css';
+
 
 class BubbleSort extends Component {
-    videos = [];
     constructor(props) {
         super(props);
+
+        console.log(this.props.contentArray);
     }
 
     swap(arr, val1, val2) {
@@ -19,24 +23,23 @@ class BubbleSort extends Component {
         for(i = 0; i < n-1; i++) {
             for(j = 0; j < n-i-1; j++) {
                 if(arr[j] > arr[j+1]) {
-                    swap(arr, j, j+1);
+                    this.swap(arr, j, j+1);
                 }
             }
         }
     }
 
     render(){
-        
-        var videos_bars = this.videos.map(
-            (value) => 
-            <li className='bars' key={value}>
+        console.log("IN bubble_sort.js");
+
+        var videos_bars = this.props.contentArray.map((value) => 
+            <li className='bars' id={value} key={value} style={{width : value}}>
                 {value}
             </li>
         );
 
         return(
             <div>
-                <h1>Sort Sreen</h1>
                 <ul className='bars_container'>
                     {videos_bars}
                 </ul>
