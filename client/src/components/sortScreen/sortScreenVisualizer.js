@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './bars_container.css';
 
-import BubbleSort from './bubble_sort/bubble_sort.js';
-import SelectionSort from './selection_sort/selection_sort.js';
-import InsertionSort from './insertion_sort/insertion_sort.js';
-import MergeSort from './merge_sort/merge_sort.js';
+import BubbleSort from './algorithms/bubble_sort.js';
+import SelectionSort from './algorithms/selection_sort.js';
+import InsertionSort from './algorithms/insertion_sort.js';
+import MergeSort from './algorithms/merge_sort.js';
 
 class SortSreen extends Component {
     videos = [];
