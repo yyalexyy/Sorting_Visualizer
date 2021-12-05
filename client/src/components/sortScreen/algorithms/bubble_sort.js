@@ -10,7 +10,7 @@ class BubbleSort extends Component {
         console.log(this.props.contentArray);
     }
 
-    swap(arr, val1, val2) {
+    async swap(arr, val1, val2) {
         var temp = arr[val1];
         arr[val1] = arr[val2];
         arr[val2] = temp;
