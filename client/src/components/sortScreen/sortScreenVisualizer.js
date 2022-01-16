@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './bars_container.css';
 
 import {bubbleSort} from './algorithms/bubbleSort.js';
 import {selectionSort} from './algorithms/selectionSort.js';
 import {insertionSort} from './algorithms/insertionSort.js';
 import {mergeSort} from './algorithms/mergeSort.js';
+
 import Frame from './frame';
 
 class SortSreenVisualizer extends Component {
@@ -42,23 +42,21 @@ class SortSreenVisualizer extends Component {
     }
 
     render(){
-        // this.generateNumbers();
         // this.sleep(5000);
         // console.log(this.state.videos);
-        // console.log(this.state.videos);
-        this.start()
+
+        this.startSort();
         return(
             <div>
                 <h1>Sort Sreen</h1>
+
                 <Frame videos={this.state.videos}/>
                 
-
-              
             </div>
         );
     }
 
-    start = async() => {
+    startSort = async() => {
         // get an arry of moves (to visualize either swap or no swap)
         let moves = await this.getAlgorithmMoves();
         // console.log(moves);
@@ -72,7 +70,7 @@ class SortSreenVisualizer extends Component {
 
     getAlgorithmMoves = async() => {
         let moves = [];
-        let arr = await this.copyList();
+        let arr = await this.dCopyList();
         
         console.log("In getAlgorithmMoves")
 
@@ -90,17 +88,16 @@ class SortSreenVisualizer extends Component {
     }
 
     visualizeMoves = async(moves) => {
-        console.log(moves)
+        // console.log(moves)
 
         if(moves.length === 0)
             return;
         
-
         while(moves.length > 0) {
             let curr = moves[0];
 
             if(curr[2] === true) {
-                await this.updateList(curr[0], curr[1]);
+                await this.swpUpdateList(curr[0], curr[1]);
             }
 
             moves.shift();
@@ -109,7 +106,7 @@ class SortSreenVisualizer extends Component {
     }
 
     // swap the element for each move
-    updateList = async(idx1, idx2) => {
+    swpUpdateList = async(idx1, idx2) => {
         let arr = [...this.state.videos];
 
         let tmp = arr[idx1];
@@ -129,12 +126,12 @@ class SortSreenVisualizer extends Component {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve();
-            });
+            }, 500/1);
         });
     }
 
 
-    copyList = async() => {
+    dCopyList = async() => {
         let lst = [];
         for(let i = 0; i < this.state.videos.length; i++) {
             lst.push(this.state.videos[i]);
