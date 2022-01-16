@@ -1,0 +1,29 @@
+li.bars{
+    background-color: rgb(255, 166, 0);
+    text-align: center;
+    height: 40px;
+    margin: 10px;
+    transition: all .4s ease-in;
+
+}
+li.bars_current{
+    background-color: rgb(233, 138, 196);
+    text-align: center;
+    height: 34px;
+    margin: 10px;
+    transition: all .4s ease-in;
+}
+
+li.bars_done{
+    background-color: #9CEC5B;
+    text-align: center;
+    height: 34px;
+    margin: 10px;
+    transition: all .4s ease-in;
+}
+
+ul.bars_container{
+    list-style-type: none;
+    display: inline;
+    padding: 1rem;
+}
