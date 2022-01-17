@@ -9,7 +9,7 @@ li.bars{
 li.bars_current{
     background-color: rgb(233, 138, 196);
     text-align: center;
-    height: 34px;
+    height: 40px;
     margin: 10px;
     transition: all .4s ease-in;
 }
@@ -17,7 +17,7 @@ li.bars_current{
 li.bars_done{
     background-color: #9CEC5B;
     text-align: center;
-    height: 34px;
+    height: 40px;
     margin: 10px;
     transition: all .4s ease-in;
 }

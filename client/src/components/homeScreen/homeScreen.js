@@ -13,9 +13,9 @@ class HomeSreen extends Component {
         this.state = {
             category : '',
             sortingMethod : '',
-            min : 10 ,
-            max : 100 ,
-            value : 0 
+            min : 10,
+            max : 100,
+            value : (10+100)/2
         }
     }
     settingCategory = (theCategory) => {

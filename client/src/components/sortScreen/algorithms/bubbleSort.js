@@ -1,6 +1,5 @@
 import { swap } from '../helper/swap.js';
 
-
 export const bubbleSort = async(array) => {
     let n = array.length;
     let moves = [];
