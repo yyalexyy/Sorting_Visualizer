@@ -7,7 +7,7 @@ import {mergeSort} from './algorithms/mergeSort.js';
 
 import Frame from './frame';
 
-const BAR_NOT_MATTER = 0 
+const BAR_DEFAULT = 0 
 const BAR_CURRENT = 1
 const BAR_DONE = 2;
 
@@ -33,7 +33,7 @@ class SortSreenVisualizer extends Component {
         const max = 100;
         for (let index = 0; index < this.state.value; index++) {
             let randNum =  Math.floor(min + (Math.random() * (max-min + 1)));
-            lst.push({key: parseInt(randNum), barType: BAR_NOT_MATTER});
+            lst.push({key: parseInt(randNum), barType: BAR_DEFAULT});
         }
         // console.log(lst);
         this.setState({videos: lst});
@@ -102,8 +102,8 @@ class SortSreenVisualizer extends Component {
                 await this.swpUpdateList(curr[0], curr[1]);
             }
 
-            // change bar status to BAR_NOT_MATTER
-            await this.updateBarStatus(indices, BAR_NOT_MATTER);
+            // change bar status to BAR_DEFAULT
+            await this.updateBarStatus(indices, BAR_DEFAULT);
 
             moves.shift();
         }
