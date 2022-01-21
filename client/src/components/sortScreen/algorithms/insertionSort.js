@@ -9,7 +9,7 @@ export const insertionSort = async(array) => {
         key = array[i];
         j = i - 1;
 
-        while(j >= 0 && array[j] > key) {
+        while(j >= 0 && array[j] < key) {
             await swap(array, j, j+1);
             moves.push([j, j+1, true]);
             j = j - 1;
