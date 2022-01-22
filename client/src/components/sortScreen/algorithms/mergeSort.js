@@ -16,7 +16,7 @@ const mergeSort_devided = async(array,moves,start,end) => {
     let i = start,j = mid+1;
     let ordered_sequence = [];
     while(i<=mid&&j<=end) {
-        if(array[i] > array[j]) {
+        if(array[i] < array[j]) {
             ordered_sequence.push(array[j++]);
         } else {
             ordered_sequence.push(array[i++]);
@@ -28,8 +28,12 @@ const mergeSort_devided = async(array,moves,start,end) => {
     while(j<=end) {
         ordered_sequence.push(array[j++]);
     }
+    let range = [];
+    for (let k = start; k <= end; k++) {
+        range.push(k);
+    }
     for (let k = 0; k <= end-start; k++) {
         array[start+k] = ordered_sequence[k];
-        moves.push([start+k,ordered_sequence[k]]);
+        moves.push([start+k,ordered_sequence[k],range,"MERGESORT"]);
     }
 }

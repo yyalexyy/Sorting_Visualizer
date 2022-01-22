@@ -10,7 +10,8 @@ import Frame from './frame';
 
 const BAR_DEFAULT = 0 
 const BAR_CURRENT = 1
-const BAR_DONE = 2;
+const BAR_DONE = 2
+const BAR_RANGE = 3;
 
 class SortSreenVisualizer extends Component {
 
@@ -111,17 +112,20 @@ class SortSreenVisualizer extends Component {
                 // change bar status to BAR_DEFAULT
                 await this.updateBarStatus(indices, BAR_DEFAULT);
             }
-        }else if (moves[0].length===2) {
+        }else if (moves[0].length===4) {
+            let pre_range = [];
             while(moves.length > 0) {
                 let curr = moves.shift();
-                let indices = [curr[0]];
+                let range = curr[2];
                 // change bar status to BAR_CURRENT
-                await this.updateBarStatus(indices, BAR_CURRENT);
-
-                await this.changevalUpdateList(curr[0], curr[1]);
-
+                if (pre_range!==range) {
+                    await this.updateBarStatus(pre_range, BAR_DEFAULT);
+                    await this.updateBarStatus(range, BAR_RANGE);
+                    pre_range=range;
+                }
+                await this.updateBarStatus([curr[0]], BAR_CURRENT);
+                await this.changevalUpdateList([curr[0]], curr[1]);
                 // change bar status to BAR_DEFAULT
-                await this.updateBarStatus(indices, BAR_DEFAULT);
             }
         }
 

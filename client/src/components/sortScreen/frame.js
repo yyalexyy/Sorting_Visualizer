@@ -8,8 +8,10 @@ class Frame extends Component {
             return 'bars'
         else if(value === 1)
             return 'bars_current'
-        else
+        else  if(value === 2)
             return 'bars_done'
+        else  
+            return 'bars_range'
     }
 
     render() {
