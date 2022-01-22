@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter, NavLink } from 'react-router-dom';
 
 import {bubbleSort} from './algorithms/bubbleSort.js';
 import {selectionSort} from './algorithms/selectionSort.js';
@@ -45,6 +46,10 @@ class SortSreenVisualizer extends Component {
                 <h1>Sort Sreen</h1>
 
                 <Frame videos={this.state.videos}/>
+
+                <button>
+                    <NavLink to = {{pathname:'/Result',aboutProps:{videos:this.state.items}}} > SKIP </NavLink>
+                </button>
             </div>
         );
 
@@ -90,24 +95,42 @@ class SortSreenVisualizer extends Component {
 
         if(moves.length === 0)
             return;
-        
-        while(moves.length > 0) {
-            let curr = moves[0];
 
-            let indices = [curr[0], curr[1]];
-            // change bar status to BAR_CURRENT
-            await this.updateBarStatus(indices, BAR_CURRENT);
+        if (moves[0].length === 3) {
+            while(moves.length > 0) {
+                let curr = moves.shift();
 
-            if(curr[2] === true) {
-                await this.swpUpdateList(curr[0], curr[1]);
+                let indices = [curr[0], curr[1]];
+                // change bar status to BAR_CURRENT
+                await this.updateBarStatus(indices, BAR_CURRENT);
+
+                if(curr[2] === true) {
+                    await this.swpUpdateList(curr[0], curr[1]);
+                }
+
+                // change bar status to BAR_DEFAULT
+                await this.updateBarStatus(indices, BAR_DEFAULT);
             }
+        }else if (moves[0].length===2) {
+            while(moves.length > 0) {
+                let curr = moves.shift();
+                let indices = [curr[0]];
+                // change bar status to BAR_CURRENT
+                await this.updateBarStatus(indices, BAR_CURRENT);
 
-            // change bar status to BAR_DEFAULT
-            await this.updateBarStatus(indices, BAR_DEFAULT);
+                await this.changevalUpdateList(curr[0], curr[1]);
 
-            moves.shift();
+                // change bar status to BAR_DEFAULT
+                await this.updateBarStatus(indices, BAR_DEFAULT);
+            }
         }
 
+    }
+
+    changevalUpdateList = async(idx1, length) => {
+        let arr = [...this.state.videos];
+        arr[idx1].key = length;
+        await this.updateStateChanges(arr);
     }
 
     // Swap the element for each move
@@ -170,4 +193,4 @@ class SortSreenVisualizer extends Component {
 
 }
 
-export default SortSreenVisualizer;
+export default withRouter(SortSreenVisualizer);
