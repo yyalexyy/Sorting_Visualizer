@@ -6,6 +6,7 @@ const Navigation = () => {
        <div>
           <Link to="/"/>
           <Link to="/Sorting"/>
+          <Link to="/Result"/>
        </div>
     );
 }

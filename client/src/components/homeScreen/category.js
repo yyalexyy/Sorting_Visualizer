@@ -17,8 +17,7 @@ class Category extends Component {
     render(){
         const listItems = this.categorys.map((cat) =>
             <li className='list' key={cat}>
-                <button className="button" type="button" value={cat} 
-                onClick={(e)=>{this.handleONClick(e)}}>
+                <button className="button" type="button" value={cat} onClick={(e)=>{this.handleONClick(e)}}>
                     {cat}
                 </button>
             </li> 

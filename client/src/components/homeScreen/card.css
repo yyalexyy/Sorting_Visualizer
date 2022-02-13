@@ -1,9 +1,11 @@
 .card{
-    flex: 1;
+    /* position: relative; */
+    /* flex: 1; */
+    margin: auto;
     background: rgb(255, 255, 255);
     height: 300px;
-    width: 30%;
-    margin: 10px 5px;
+    width: 40%;
+    /* margin: 10px 5px; */
     padding-top: 10px;
     border-radius: 10px;
     opacity: 0.3;
