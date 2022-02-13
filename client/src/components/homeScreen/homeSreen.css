@@ -7,74 +7,54 @@
     clear: both;
 }
 
+
 .HomeScreen {
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    /* flex-direction: row; */
+    min-width: 100%;
+    min-height: 100%;
     text-align: center;
 }
 
 .categoryDiv.show {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center; */
-    width: 80%;
-    height: 100%;
-
-    /* border-color: #04AA6D;
+    min-width: 100%;
+    min-height: 100%;
+    border-color: #04AA6D;
     border-width: thin;
-    border-style: double; */
+    border-style: double;
 
-    transition: all 1s ease-in-out;
-    /* -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out; */
 }
 .sortDiv.show {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center; */
-    width: 100%;
-    height: 100%;
 
-    /* border-color: #04AA6D;
+    border-color: #04AA6D;
     border-width: thin;
-    border-style: double; */
+    border-style: double;
 
-    transition: all 1s ease-in-out;
 }
 
 .categoryDiv.hide, .sortDiv.hide {
-    text-align: center;
-    width: 0;
-    /* height: 0; */
-    overflow: hidden;
-    transition: all 0.5s ease-in-out;
+
+}
+
+.loading {
+    border-color: #fff;
+    border-width: thin;
+    border-style: double;
+
 }
 
 
 .cardContainer {
-    padding: 2%;
-    width: 96%;
     display: flex;
+    flex-direction: row;
+    padding: 2%;
+    width: 100%;
 }
 
 
 /* Buttons */
 .nextPage {
-    width: 10%;
-    height: 40px;
-    text-align: center;
     border-radius: 10px;
-    margin-top: -40px;
-    margin-left: 500px;
-    opacity: 0.3;
-    transform: rotateX(45deg);
-    transition: opacity 1s linear , transform 1s linear;
 }
 .nextPage:hover {
     opacity: 1;
@@ -82,37 +62,42 @@
 }
 
 .btnAction {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px 1500px;
+
 }
 
 .backPage {
-    position: relative;
-    width: 100%;
-    height: 30px;
-    text-align: center;
     border-radius: 10px;
-    /* opacity: 0.3;
-    transform: rotateX(45deg);
-    transition: opacity 1s linear , transform 1s linear; */
 }
-/* .backPage:hover {
+.backPage:hover {
     opacity: 1;
     transform: rotateY(0deg);
-} */
+}
+
+.linkText {
+    color: #fff;
+    text-decoration: none;
+}
+.linkText:hover {
+    color: #fff;
+    opacity: 1;
+    transform: rotateY(0deg);
+}
 
 .sortBtn {
     position: relative;
     background-color: #ff0000;
-    width: 200px;
-    height: 30px;
+    width: 15%;
+    /* height: 30px; */
     text-align: center;
     border-radius: 10px;
+    opacity: 0.3;
+    transform: rotateX(45deg);
+    transition: opacity 1s linear , transform 1s linear;
 }
-
+.sortBtn:hover {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
 
 /* Slider */
 .slider {

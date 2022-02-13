@@ -48,7 +48,7 @@ class SortSreenVisualizer extends Component {
                 <Frame videos={this.state.videos}/>
 
                 <button>
-                    <NavLink to = {{pathname:'/Result',aboutProps:{videos:this.state.items}}} > SKIP </NavLink>
+                    <NavLink to = {{pathname:'/Result',aboutProps:{videos:this.state.videos}}} > SKIP </NavLink>
                 </button>
             </div>
         );
