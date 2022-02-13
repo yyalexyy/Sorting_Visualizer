@@ -21,11 +21,13 @@ class SortSreenVisualizer extends Component {
             sortingMethod: props.location.aboutProps.sortingMethod,
             category: props.location.aboutProps.category,
             value: props.location.aboutProps.value,
-            videos: [], // array of dictionaries {key: num; barType: 0,1,2}
+            videos: props.location.aboutProps.videos,
+            displayed_bars: [], // array of dictionaries {key: num; barType: 0,1,2,3}
         }
     }
 
     componentDidMount() {
+        // console.log("videos", this.state.videos)
         this.startSort();
     }
 
@@ -38,7 +40,7 @@ class SortSreenVisualizer extends Component {
             lst.push({key: parseInt(randNum), barType: BAR_DEFAULT});
         }
         // console.log(lst);
-        this.setState({videos: lst});
+        this.setState({displayed_bars: lst});
     }
 
     render(){
@@ -46,10 +48,10 @@ class SortSreenVisualizer extends Component {
             <div>
                 <h1>Sort Sreen</h1>
 
-                <Frame videos={this.state.videos}/>
+                <Frame videos={this.state.displayed_bars}/>
 
                 <button>
-                    <NavLink to = {{pathname:'/Result',aboutProps:{videos:this.state.items}}} > SKIP </NavLink>
+                    <NavLink id='next_page_btn' to = {{pathname:'/Result',aboutProps:{videos:this.state.videos}}} > SKIP </NavLink>
                 </button>
             </div>
         );
@@ -132,14 +134,14 @@ class SortSreenVisualizer extends Component {
     }
 
     changevalUpdateList = async(idx1, length) => {
-        let arr = [...this.state.videos];
+        let arr = [...this.state.displayed_bars];
         arr[idx1].key = length;
         await this.updateStateChanges(arr);
     }
 
     // Swap the element for each move
     swpUpdateList = async(idx1, idx2) => {
-        let arr = [...this.state.videos];
+        let arr = [...this.state.displayed_bars];
 
         let tmp = arr[idx1].key;
         arr[idx1].key = arr[idx2].key;
@@ -150,7 +152,7 @@ class SortSreenVisualizer extends Component {
 
     // Update Bar Status
     updateBarStatus = async(indices, barStatus) => {
-        let arr = [...this.state.videos];
+        let arr = [...this.state.displayed_bars];
 
         for(let i = 0; i < indices.length; i++) {
             arr[indices[i]].barType = barStatus;
@@ -161,8 +163,8 @@ class SortSreenVisualizer extends Component {
 
     // Update the state of the list
     updateStateChanges = async(newArr) => {
-        this.setState({videos: []});
-        this.setState({videos: newArr});
+        this.setState({displayed_bars: []});
+        this.setState({displayed_bars: newArr});
         await this.pause();
     }
 
@@ -170,26 +172,26 @@ class SortSreenVisualizer extends Component {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve();
-            }, 300/1);
+            }, 100/1);
         });
     }
 
     // Update All Bar Status to Done 
     done = async() => {
         let indices = []
-
-        for(let i = 0; i < this.state.videos.length; i++) {
+        for(let i = 0; i < this.state.displayed_bars.length; i++) {
             indices.push(i);
         }
-
+        if(document.getElementById('next_page_btn')){
+        document.getElementById('next_page_btn').innerHTML="DONE";}
         await this.updateBarStatus(indices, BAR_DONE);
     }
 
 
     getKeysList = async() => {
         let lst = [];
-        for(let i = 0; i < this.state.videos.length; i++) {
-            lst.push(this.state.videos[i].key);
+        for(let i = 0; i < this.state.displayed_bars.length; i++) {
+            lst.push(this.state.displayed_bars[i].key);
         }
 
         return lst;

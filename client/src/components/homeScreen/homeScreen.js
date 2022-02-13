@@ -7,6 +7,8 @@ import SortingMethod from './sorting_methods';
 import './homeSreen.css';
 import './card.css';
 
+import {API,get_statistics} from '../../api/api';
+
 class HomeSreen extends Component {
     constructor(props){
         super(props);
@@ -16,7 +18,9 @@ class HomeSreen extends Component {
             sortingMethod : '',
             min : 10,
             max : 100,
-            value : (10+100)/2
+            value : (10+100)/2,
+            videos : [],
+            call_api : false
         }
     }
 
@@ -36,21 +40,28 @@ class HomeSreen extends Component {
         this.setState({value: parseInt(newValue)});
         document.getElementById('sliderValue').innerHTML=newValue;
     }
+    accessAPI = async() => {
+        this.setState({isDataFetched: true});
+        let data = await API();
+        let videos = [];
+        await get_statistics(data.items,videos);
+        this.setState({videos: videos});
+        // console.log("API", this.state.videos)
+    }
     render(){
         return(
         <div className="HomeScreen" style={{height:"100vh", backgroundColor:"#000"}}>
+            
             <div className={this.state.activeDiv === "categoryDiv" ? "categoryDiv show" : "categoryDiv hide"}
                 id = "categoryDiv">
                     <form className="cardContainer" name="theForm">
                         <Category settingCategory={this.settingCategory} />
                     </form>
 
-                    <button type="button" className="nextPage" onClick={this.toggleDiv}>
+                    <button type="button" className="nextPage" onClick={()=>{this.toggleDiv();this.accessAPI()}}>
                         Sorting Selections
                     </button>
             </div>
-
-
             <div className={this.state.activeDiv === "sortDiv" ? "sortDiv show" : "sortDiv hide"}
                 id="sortDiv">
                     <form className="cardContainer" name="theForm">
@@ -78,7 +89,8 @@ class HomeSreen extends Component {
                                     aboutProps:{
                                         value:this.state.value,
                                         category:this.state.category,
-                                        sortingMethod:this.state.sortingMethod
+                                        sortingMethod:this.state.sortingMethod,
+                                        videos:this.state.videos
                                     }
                                 }} 
                                 >Sorting</NavLink>
