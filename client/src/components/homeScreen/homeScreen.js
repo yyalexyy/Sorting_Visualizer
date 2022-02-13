@@ -117,7 +117,8 @@ class HomeSreen extends Component {
                             aboutProps: {
                                 value: this.state.value,
                                 category: this.state.category,
-                                sortingMethod: this.state.sortingMethod
+                                sortingMethod: this.state.sortingMethod,
+                                videos: this.state.video_list
                             }
                         }}
                         >Sorting</NavLink>

@@ -14,11 +14,11 @@ class ResultSreen extends Component {
     render() {
         return (
             <div>
-                {/* <button onClick={()=>{console.log("videos:",this.props.location.aboutProps.videos)}}> 123 </button> */}
+                <button onClick={()=>{console.log("videos:",this.props.location.aboutProps.videos)}}> 123 </button>
                 <TOP3Carousel videos = {this.props.location.aboutProps.videos}/>
-                {/* <button>
+                <button>
                     <NavLink to = {{pathname:'/'}} > HOME </NavLink>
-                </button> */}
+                </button>
             </div>
         )
     }
