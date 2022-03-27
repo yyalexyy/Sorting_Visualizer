@@ -1,16 +1,16 @@
-ul.sortingList {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+/* ul.sortingList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-ul li button{
-    color: rgb(0, 0, 0);
-    background: none;
-    border: none;
+ul li button {
+  color: rgb(0, 0, 0);
+  background: none;
+  border: none;
 }
 
 h1.checked_item {
-    position: absolute;
-    color: rgba(95, 95, 95, 0.404);
-}
+  position: absolute;
+  color: rgba(95, 95, 95, 0.404);
+} */

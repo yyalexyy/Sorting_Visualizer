@@ -16,7 +16,7 @@ class HomeSreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeDiv: "categoryDiv",
+            activeDiv: "categoriesDiv",
             category: '',
             sortingMethod: '',
             min: 10,
@@ -29,15 +29,21 @@ class HomeSreen extends Component {
 
     toggleDiv = () => {
         this.setState({
-            activeDiv: this.state.activeDiv === "categoryDiv" ? "sortDiv" : "categoryDiv"
+            activeDiv: this.state.activeDiv === "categoriesDiv" ? "sortDiv" : "categoriesDiv"
         });
 
     }
 
+    sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+    }
+
     accessAPI = async () => {
-        let data = await YOUTUBE_SEARCH();
+        // let data = await YOUTUBE_SEARCH();
         let videos = [];
-        await YOUTUBE_STATS(data.items, videos);
+        // await YOUTUBE_STATS(data.items, videos);
+
+        await this.sleep(2000) //wait 2 seconds
 
         this.setState({ video_list: videos, isDataFetched: true });
 
@@ -66,18 +72,16 @@ class HomeSreen extends Component {
         );
     }
 
-    categoryDiv() {
+    categoriesDiv() {
         return (
-            <div className={this.state.activeDiv === "categoryDiv" ? "categoryDiv show" : "categoryDiv hide"}
-                id="categoryDiv">
+            <div className={this.state.activeDiv === "categoriesDiv" ? "categoriesDiv show" : "categoriesDiv hide"}
+                id="categoriesDiv">
                 <form className="cardContainer" name="theForm">
                     <Category settingCategory={this.settingCategory} />
                 </form>
 
                 <div>
                     <button type="button" className="nextPage" onClick={() => { this.toggleDiv(); this.accessAPI() }}>
-                        {/* <button type="button" className="nextPage" onClick={() => { this.toggleDiv() }}> */}
-
                         Sorting Selections
                     </button>
                 </div>
@@ -92,18 +96,26 @@ class HomeSreen extends Component {
                 id="sortDiv">
 
                 <form className="cardContainer" name="theForm">
-                    {/* Sort Selection */}
-                    <SortingMethod settingSortingMethod={this.settingSortingMethod} />
+                    <div id="selectionsParent">
 
-                    {/* Slider */}
-                    <div className='card chooseSize'>
-                        <input type='range' className="slider" id="slider" name="slider"
-                            min={this.state.min} max={this.state.max} defaultValue="55" step="1"
-                            onChange={(e) => this.showValue(e.target.value)}
-                        />
+                        <div className="categoryChild">
+                            {/* Sort Selection */}
+                            <SortingMethod settingSortingMethod={this.settingSortingMethod} />
+                        </div>
 
-                        <h1 id="sliderValue" >{(this.state.min + this.state.max) / 2}</h1>
+                        <div className='selectionChild'>
+                            <div className='card chooseSize'>
+                                <input type='range' className="slider" id="slider" name="slider"
+                                    min={this.state.min} max={this.state.max} defaultValue="55" step="1"
+                                    onChange={(e) => this.showValue(e.target.value)}
+                                />
+
+                                <h1 id="sliderValue" >{(this.state.min + this.state.max) / 2}</h1>
+                            </div>
+                        </div>
                     </div>
+
+                    
 
                 </form>
 
@@ -132,8 +144,8 @@ class HomeSreen extends Component {
     render() {
         return (
 
-            <div className="HomeScreen" style={{ height: "100vh", backgroundColor: "#000" }}>
-                {this.state.activeDiv === "categoryDiv" ? this.categoryDiv() :
+            <div className="homeScreen">
+                {this.state.activeDiv === "categoriesDiv" ? this.categoriesDiv() :
                     <div>
                         {this.state.isDataFetched ? this.sortDiv() : this.loadingDiv()}
                     </div>

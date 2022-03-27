@@ -1,16 +1,53 @@
-ul.categoryList {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+ul.categoryList,
+ul.optionList,
+ul.sortingList {
+  list-style-type: none;
+  /* margin: 0; */
+  padding: 0;
 }
 
-ul li button{
-    color: rgb(0, 0, 0);
-    background: none;
-    border: none;
+.optionList {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 28rem;
+}
+
+.selectionList,
+.selectionBtn {
+  color: #000;
+  border: none;
+  text-align: left;
+}
+
+.selectionBtn {
+  width: 18rem;
+  height: 5rem;
+  margin: 1em;
+  background-color: #efefef;
+  border: solid medium #000;
+}
+.selectionBtn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.selectionBtn:focus {
+  background-color: #000;
+  color: #fff;
+}
+
+.optionBtn {
+  /* overflow: auto; */
+  /* white-space: nowrap; */
+}
+
+/* ul li button {
+  color: rgb(0, 0, 0);
+  background: none;
+  border: none;
 }
 
 h1.checked_item {
-    align-self: stretch;
-    color: rgba(95, 95, 95, 0.404);
-}
+  align-self: stretch;
+  color: rgba(95, 95, 95, 0.404);
+} */

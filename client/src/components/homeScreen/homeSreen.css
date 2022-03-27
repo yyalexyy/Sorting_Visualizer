@@ -1,140 +1,138 @@
 * {
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  box-sizing: border-box;
 }
-::after{
-    clear: both;
-}
-
-
-.HomeScreen {
-    /* display: flex; */
-    /* flex-direction: row; */
-    min-width: 100%;
-    min-height: 100%;
-    text-align: center;
+::after {
+  clear: both;
 }
 
-.categoryDiv.show {
-    min-width: 100%;
-    min-height: 100%;
-    border-color: #04AA6D;
-    border-width: thin;
-    border-style: double;
+.homeScreen {
+  position: relative;
+  margin: auto;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* text-align: center; */
+}
 
+.categoriesDiv.show {
+  /* position: absolute; */
+  /* min-width: 100%;
+  min-height: 100%; */
+  border-color: #04aa6d;
+  border-width: thin;
+  border-style: double;
 }
 .sortDiv.show {
-
-    border-color: #04AA6D;
-    border-width: thin;
-    border-style: double;
-
+  border-color: #04aa6d;
+  border-width: thin;
+  border-style: double;
 }
 
-.categoryDiv.hide, .sortDiv.hide {
-
+.categoriesDiv.hide,
+.sortDiv.hide {
 }
 
 .loading {
-    border-color: #fff;
-    border-width: thin;
-    border-style: double;
-
+  border-color: #fff;
+  border-width: thin;
+  border-style: double;
 }
-
 
 .cardContainer {
-    display: flex;
-    flex-direction: row;
-    padding: 2%;
-    width: 100%;
+  /* display: flex;
+  flex-direction: row;
+  padding: 2%;
+  width: 100%; */
+  border-color: blue;
+  border-width: thin;
+  border-style: double;
 }
-
 
 /* Buttons */
 .nextPage {
-    border-radius: 10px;
+  /* position: absolute; */
+  border-radius: 10px;
+  right: 0;
 }
 .nextPage:hover {
-    opacity: 1;
-    transform: rotateY(0deg);
+  opacity: 1;
+  transform: rotateY(0deg);
 }
 
 .btnAction {
-
 }
 
 .backPage {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 .backPage:hover {
-    opacity: 1;
-    transform: rotateY(0deg);
+  opacity: 1;
+  transform: rotateY(0deg);
 }
 
 .linkText {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 .linkText:hover {
-    color: #fff;
-    opacity: 1;
-    transform: rotateY(0deg);
+  color: #fff;
+  opacity: 1;
+  transform: rotateY(0deg);
 }
 
 .sortBtn {
-    position: relative;
-    background-color: #ff0000;
-    width: 15%;
-    /* height: 30px; */
-    text-align: center;
-    border-radius: 10px;
-    opacity: 0.3;
-    transform: rotateX(45deg);
-    transition: opacity 1s linear , transform 1s linear;
+  position: relative;
+  background-color: #ff0000;
+  width: 15%;
+  /* height: 30px; */
+  text-align: center;
+  border-radius: 10px;
+  opacity: 0.3;
+  transform: rotateX(45deg);
+  transition: opacity 1s linear, transform 1s linear;
 }
 .sortBtn:hover {
-    opacity: 1;
-    transform: rotateY(0deg);
+  opacity: 1;
+  transform: rotateY(0deg);
 }
 
 /* Slider */
 .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-    margin: auto;
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+  margin: auto;
 }
 
-.slider+h1{
-    text-align: center;
+.slider + h1 {
+  text-align: center;
 }
 
 /* Mouse-over effects */
 .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
+  opacity: 1; /* Fully shown on mouse-over */
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #ff0000; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #ff0000; /* Green background */
+  cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04aa6d; /* Green background */
+  cursor: pointer; /* Cursor on hover */
 }

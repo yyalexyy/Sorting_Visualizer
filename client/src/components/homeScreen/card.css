@@ -1,20 +1,53 @@
-.card{
-    /* position: relative; */
-    /* flex: 1; */
-    margin: auto;
-    background: rgb(255, 255, 255);
-    height: 300px;
-    width: 40%;
-    padding-top: 10px;
-    border-radius: 10px;
-    opacity: 0.3;
-    transform: rotateX(45deg);
-    transition: opacity 1s linear , transform 1s linear;
+.selectionContainer {
+  margin: auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  min-height: max-content;
+  height: 32rem;
+  width: 45rem;
+  background-color: #fff;
+  border-radius: 0.4em;
+  opacity: 0.3;
+  transform: rotateX(45deg);
+  transition: opacity 1s linear, transform 1s linear;
 }
-.card > *{
-    text-align: left;
+.selectionContainer:hover {
+  opacity: 1;
+  transform: rotateY(0deg);
 }
-.card:hover{
-    opacity: 1;
-    transform: rotateY(0deg);
+
+#selectionsParent {
+  display: flex;
 }
+
+.categoryChild {
+  margin: auto;
+  /* align-items: center; */
+  flex: 1;
+  margin: 1rem;
+  /* padding: 2rem; */
+}
+
+.selectionChild {
+  align-items: center;
+  flex: 1;
+  margin: 1rem;
+}
+
+/* Option Divs */
+/* .countryDiv.show,
+.categoryDiv.show,
+.vDurationDiv.show,
+.dateDiv.show {
+} */
+
+.div.show {
+}
+
+.div.hide {
+  display: none;
+}
+
+/* .card > * {
+  text-align: left;
+} */

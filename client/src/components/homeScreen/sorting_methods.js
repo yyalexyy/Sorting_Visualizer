@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './sorting_methods.css';
 import './card.css';
 
+const methods = ["bubbleSort", "mergeSort", "selectionSort", "insertionSort"];
 class SortingMethod extends Component {
     constructor(props) {
         super(props);
@@ -13,9 +14,8 @@ class SortingMethod extends Component {
         this.setState({ value: e.target.value });
         this.props.settingSortingMethod(e.target.value);
     }
-    methods = ["bubbleSort", "mergeSort", "selectionSort", "insertionSort"];
     render() {
-        const listItems = this.methods.map((method) =>
+        const listItems = methods.map((method) =>
             <li className='list' key={method}>
                 <button className="button" type="button" value={method}
                     onClick={(e) => { this.handleONClick(e) }}>
